@@ -10,10 +10,11 @@ abstract class Vehicle {
     private float price;
     private float speed;
     private int   yearOfIssue;
-    Scanner in;
+    private int amountPassengers;
+    Scanner scannerObjRef;
 
     public Vehicle() {
-        this.in = new Scanner(System.in);
+        this.scannerObjRef = new Scanner(System.in);
         this.setLatitude();
         this.setLongitude();
         this.setPrice();
@@ -63,7 +64,7 @@ abstract class Vehicle {
         String latitude;
 
         System.out.println("Input latitude: ");
-        latitude = in.nextLine();
+        latitude = scannerObjRef.nextLine();
 
         if (this.tryToParseFloat(latitude)) {
             this.setLatitude(Float.parseFloat(latitude));
@@ -83,7 +84,7 @@ abstract class Vehicle {
         String longitude;
 
         System.out.println("Input longitude: ");
-        longitude = in.nextLine();
+        longitude = scannerObjRef.nextLine();
 
 
         if (this.tryToParseFloat(longitude)) {
@@ -110,7 +111,7 @@ abstract class Vehicle {
         String price;
 
         System.out.println("Input price: ");
-        price = in.nextLine();
+        price = scannerObjRef.nextLine();
 
         if (this.tryToParseFloat(price)) {
             this.setPrice(Float.parseFloat(price));
@@ -130,7 +131,7 @@ abstract class Vehicle {
         String speed;
 
         System.out.println("Input speed: ");
-        speed = in.nextLine();
+        speed = scannerObjRef.nextLine();
 
         if (this.tryToParseFloat(speed)) {
             this.setSpeed(Float.parseFloat(speed));
@@ -153,7 +154,7 @@ abstract class Vehicle {
         String yearOfIssue;
 
         System.out.println("Input yearOfIssue: ");
-        yearOfIssue = in.nextLine();
+        yearOfIssue = scannerObjRef.nextLine();
 
         if (this.tryToParseInt(yearOfIssue)) {
             this.setSpeed(Integer.parseInt(yearOfIssue));
@@ -161,7 +162,29 @@ abstract class Vehicle {
 
     }
 
-    private boolean tryToParseFloat(String str) {
+    public int getAmountPassengers() {
+        return amountPassengers;
+    }
+
+    public void setAmountPassengers(int amountPassengers) {
+        if (amountPassengers > 0) {
+            this.amountPassengers = amountPassengers;
+        }
+    }
+
+    public void setAmountPassengers() {
+
+        String amountPassengers;
+
+        System.out.println("Input amount of passengers: ");
+        amountPassengers = scannerObjRef.nextLine();
+
+        if (this.tryToParseInt(amountPassengers)) {
+            this.setAmountPassengers(Integer.parseInt(amountPassengers));
+        }
+    }
+
+    protected boolean tryToParseFloat(String str) {
         try {
             Float.parseFloat(str);
             return true;
@@ -171,7 +194,7 @@ abstract class Vehicle {
         }
     }
 
-    private boolean tryToParseInt(String str) {
+    protected boolean tryToParseInt(String str) {
         try {
             Integer.parseInt(str);
             return true;
