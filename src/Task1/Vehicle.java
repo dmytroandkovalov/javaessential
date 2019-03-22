@@ -14,6 +14,11 @@ abstract class Vehicle {
 
     public Vehicle() {
         this.in = new Scanner(System.in);
+        this.setLatitude();
+        this.setLongitude();
+        this.setPrice();
+        this.setSpeed();
+        this.setYearOfIssue();
     }
 
     public void printCoordinates() {
