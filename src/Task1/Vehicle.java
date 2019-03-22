@@ -20,11 +20,8 @@ abstract class Vehicle {
     }
 
     public void setLatitude(String latitude) {
-
-        Float f = Float.valueOf(latitude);
-
-        if (this.validateVehicleFloat(f)) {
-            this.setLatitude(f.floatValue());
+        if (this.tryToParseFloat(latitude)) {
+            this.setLatitude(Float.parseFloat(latitude));
         }
     }
 
@@ -36,12 +33,30 @@ abstract class Vehicle {
         this.longitude = longitude;
     }
 
+    public void setLongitude(String longitude) {
+        if (this.tryToParseFloat(longitude)) {
+            this.setLongitude(Float.parseFloat(longitude));
+        }
+    }
+
     public float getPrice() {
         return price;
     }
 
     public void setPrice(float price) {
-        this.price = price;
+
+        if (price > 0) {
+            this.price = price;
+        } else {
+            System.out.println("Price must be larger than zero.");
+        }
+
+    }
+
+    public void setPrice(String price) {
+        if (this.tryToParseFloat(price)) {
+            this.setPrice(Float.parseFloat(price));
+        }
     }
 
     public float getSpeed() {
@@ -50,6 +65,12 @@ abstract class Vehicle {
 
     public void setSpeed(float speed) {
         this.speed = speed;
+    }
+
+    public void setSpeed(String speed) {
+        if (this.tryToParseFloat(speed)) {
+            this.setSpeed(Float.parseFloat(speed));
+        }
     }
 
     public int getYearOfIssue() {
@@ -62,9 +83,31 @@ abstract class Vehicle {
         }
 
     }
+    public void setYearOfIssue(String yearOfIssue) {
+        if (this.tryToParseInt(yearOfIssue)) {
+            this.setSpeed(Integer.parseInt(yearOfIssue));
+        }
 
-    private boolean validateVehicleFloat(Float obj) {
-        return obj.isNaN() && obj.isInfinite() ? false : true;
+    }
+
+    private boolean tryToParseFloat(String str) {
+        try {
+            Float.parseFloat(str);
+            return true;
+        } catch (NumberFormatException e ) {
+            System.out.println("Cannot convert typed string to float value");
+            return false;
+        }
+    }
+
+    private boolean tryToParseInt(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e ) {
+            System.out.println("Cannot convert typed string to integer value");
+            return false;
+        }
     }
 
 }
