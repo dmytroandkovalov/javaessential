@@ -1,6 +1,7 @@
 package Task1;
 
 import java.time.Year;
+import java.util.Scanner;
 
 abstract class Vehicle {
 
@@ -9,7 +10,40 @@ abstract class Vehicle {
     private float price;
     private float speed;
     private int   yearOfIssue;
+    Scanner in;
 
+    public Vehicle() {
+        this.in = new Scanner(System.in);
+    }
+
+    public void printCoordinates() {
+
+        float latitude   = this.getLatitude();
+        float longitude  = this.getLongitude();
+
+        if (latitude > 0f && longitude > 0f) {
+            System.out.println("Latitude: "  + latitude);
+            System.out.println("Longtiude: " + longitude);
+        }
+    }
+
+    public void printOptions() {
+
+        float price     = this.getPrice();
+        float speed     = this.getSpeed();
+        int yearOfIssue = this.getYearOfIssue();
+
+        if (price > 0f) {
+            System.out.println("Price: " + latitude);
+        }
+        if (speed > 0f) {
+            System.out.println("Speed: " + speed);
+        }
+
+        if (yearOfIssue > 0) {
+            System.out.println("Year of issue: " + yearOfIssue);
+        }
+    }
 
     public float getLatitude() {
         return latitude;
@@ -19,7 +53,13 @@ abstract class Vehicle {
         this.latitude = latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude() {
+
+        String latitude;
+
+        System.out.println("Input latitude: ");
+        latitude = in.nextLine();
+
         if (this.tryToParseFloat(latitude)) {
             this.setLatitude(Float.parseFloat(latitude));
         }
@@ -33,7 +73,14 @@ abstract class Vehicle {
         this.longitude = longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude() {
+
+        String longitude;
+
+        System.out.println("Input longitude: ");
+        longitude = in.nextLine();
+
+
         if (this.tryToParseFloat(longitude)) {
             this.setLongitude(Float.parseFloat(longitude));
         }
@@ -53,7 +100,13 @@ abstract class Vehicle {
 
     }
 
-    public void setPrice(String price) {
+    public void setPrice() {
+
+        String price;
+
+        System.out.println("Input price: ");
+        price = in.nextLine();
+
         if (this.tryToParseFloat(price)) {
             this.setPrice(Float.parseFloat(price));
         }
@@ -67,7 +120,13 @@ abstract class Vehicle {
         this.speed = speed;
     }
 
-    public void setSpeed(String speed) {
+    public void setSpeed() {
+
+        String speed;
+
+        System.out.println("Input speed: ");
+        speed = in.nextLine();
+
         if (this.tryToParseFloat(speed)) {
             this.setSpeed(Float.parseFloat(speed));
         }
@@ -83,7 +142,14 @@ abstract class Vehicle {
         }
 
     }
-    public void setYearOfIssue(String yearOfIssue) {
+
+    public void setYearOfIssue() {
+
+        String yearOfIssue;
+
+        System.out.println("Input yearOfIssue: ");
+        yearOfIssue = in.nextLine();
+
         if (this.tryToParseInt(yearOfIssue)) {
             this.setSpeed(Integer.parseInt(yearOfIssue));
         }
