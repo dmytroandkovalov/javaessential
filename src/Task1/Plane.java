@@ -10,6 +10,11 @@ public class Plane extends Vehicle {
         super.setAmountPassengers();
     }
 
+    @Override
+    public void printType() {
+        System.out.println("This is plane");
+    }
+
     public int getHeight() {
         return height;
     }

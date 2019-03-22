@@ -14,6 +14,7 @@ abstract class Vehicle {
     Scanner scannerObjRef;
 
     public Vehicle() {
+        this.printType();
         this.scannerObjRef = new Scanner(System.in);
         this.setLatitude();
         this.setLongitude();
@@ -49,6 +50,10 @@ abstract class Vehicle {
         if (yearOfIssue > 0) {
             System.out.println("Year of issue: " + yearOfIssue);
         }
+    }
+
+    public void printType() {
+        System.out.println("This is vehicle");
     }
 
     public float getLatitude() {

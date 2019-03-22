@@ -10,6 +10,11 @@ public class Ship extends Vehicle {
         this.setPortName();
     }
 
+    @Override
+    public void printType() {
+        System.out.println("This is car");
+    }
+
     public String getPortName() {
         return portName;
     }

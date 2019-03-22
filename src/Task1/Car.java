@@ -6,5 +6,9 @@ public class Car extends  Vehicle {
         super();
     }
 
+    @Override
+    public void printType() {
+        System.out.println("This is car");
+    }
 
 }
