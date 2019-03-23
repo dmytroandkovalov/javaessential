@@ -4,5 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Finder obj = new Finder();
         obj.generateVehicleArray(100);
+        obj.printGeneratedVehicleArray();
+        obj.findVehicleWithMaxPrice();
     }
 }

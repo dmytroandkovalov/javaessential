@@ -11,7 +11,6 @@ abstract class Vehicle {
     private float speed;
     private int   yearOfIssue;
     private int amountPassengers;
-    private String vehicleType;
     Scanner scannerObjRef;
 
     public Vehicle() {
@@ -22,7 +21,6 @@ abstract class Vehicle {
         this.setPrice();
         this.setSpeed();
         this.setYearOfIssue();
-        this.setVehicleType();
     }
 
     public Vehicle( float latitude, float longitude, float price, float speed, int yearOfIssue) {
@@ -31,7 +29,6 @@ abstract class Vehicle {
         this.setPrice(price);
         this.setSpeed(speed);
         this.setYearOfIssue(yearOfIssue);
-        this.setVehicleType();
     }
 
     public void printCoordinates() {
@@ -47,6 +44,8 @@ abstract class Vehicle {
 
     public void printOptions() {
 
+        this.printType();
+        this.printCoordinates();
         float price     = this.getPrice();
         float speed     = this.getSpeed();
         int yearOfIssue = this.getYearOfIssue();
@@ -64,7 +63,7 @@ abstract class Vehicle {
     }
 
     public void printType() {
-        System.out.println("This is " + this.getVehicleType());
+        System.out.println("\n\nThis is vehicle");
     }
 
     public float getLatitude() {
@@ -198,17 +197,6 @@ abstract class Vehicle {
         if (this.tryToParseInt(amountPassengers)) {
             this.setAmountPassengers(Integer.parseInt(amountPassengers));
         }
-    }
-
-    public String getVehicleType() {
-        return vehicleType;
-    }
-
-    public void setVehicleType() {
-        this.vehicleType = "vehicle";
-    }
-    public void setVehicleType(String vehicleType) {
-        this.vehicleType = vehicleType;
     }
 
     protected boolean tryToParseFloat(String str) {

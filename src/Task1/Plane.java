@@ -18,7 +18,7 @@ public class Plane extends Vehicle {
 
     @Override
     public void printType() {
-        System.out.println("This is plane");
+        System.out.println("\n\nThis is plane");
     }
 
 
@@ -30,6 +30,8 @@ public class Plane extends Vehicle {
     @Override
     public void printOptions() {
         super.printOptions();
+        System.out.println("Amount of passengers: " + this.getAmountPassengers());
+        System.out.println("Height: " + this.getHeight());
     }
 
     @Override
@@ -120,11 +122,6 @@ public class Plane extends Vehicle {
     @Override
     public void setAmountPassengers() {
         super.setAmountPassengers();
-    }
-
-    @Override
-    public void setVehicleType() {
-        super.setVehicleType("plane");
     }
 
     public float getHeight() {

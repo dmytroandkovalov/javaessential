@@ -13,7 +13,7 @@ public class Car extends  Vehicle {
 
     @Override
     public void printType() {
-        System.out.println("This is car");
+        System.out.println("\n\nThis is car");
     }
 
     @Override
@@ -114,10 +114,5 @@ public class Car extends  Vehicle {
     @Override
     public void setAmountPassengers() {
         super.setAmountPassengers();
-    }
-
-    @Override
-    public void setVehicleType() {
-        super.setVehicleType("car");
     }
 }

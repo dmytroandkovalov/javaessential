@@ -36,7 +36,7 @@ public class Ship extends Vehicle {
 
     @Override
     public void printType() {
-        System.out.println("This is car");
+        System.out.println("\n\nThis is car");
     }
 
     @Override
@@ -47,6 +47,8 @@ public class Ship extends Vehicle {
     @Override
     public void printOptions() {
         super.printOptions();
+        System.out.println("Amount of passengers: " + this.getAmountPassengers());
+        System.out.println("portName: " + this.getPortName());
     }
 
     @Override
@@ -137,10 +139,5 @@ public class Ship extends Vehicle {
     @Override
     public void setAmountPassengers() {
         super.setAmountPassengers();
-    }
-
-    @Override
-    public void setVehicleType() {
-        super.setVehicleType("ship");
     }
 }

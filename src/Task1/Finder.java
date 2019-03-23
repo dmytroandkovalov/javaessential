@@ -12,9 +12,10 @@ class Finder {
 
     protected void generateVehicleArray(int amountRandomVehilce) {
         if (amountRandomVehilce > 0) {
-            this.generateVehicleTypeArray(amountRandomVehilce);
+            vehicleArr = this.generateVehicleTypeArray(amountRandomVehilce);
         }
     }
+
     private Vehicle[] generateVehicleTypeArray (int amountRandomVehilce) {
 
         Vehicle arr[] = new Vehicle[amountRandomVehilce];
@@ -67,5 +68,48 @@ class Finder {
         return random.nextFloat() * (max - min) + min;
     }
 
+    protected void printGeneratedVehicleArray() {
 
+        for (Vehicle vehicle: this.getVehicleArr()) {
+            vehicle.printOptions();
+        }
+    }
+
+    public Vehicle[] getVehicleArr() {
+        return vehicleArr;
+    }
+
+    public void setVehicleArr(Vehicle[] vehicleArr) {
+        this.vehicleArr = vehicleArr;
+    }
+
+    public void findVehicleWithMaxPrice() {
+
+
+        if (this.vehicleArr != null) {
+
+            float maxPrice = 0;
+            float currentPrice;
+            Vehicle vehicleWithMaxPrice = null;
+            Vehicle currentVehiсle;
+
+            for (int i = 0; i < this.vehicleArr.length; i++) {
+
+                currentVehiсle = this.vehicleArr[i];
+                currentPrice   = currentVehiсle.getPrice();
+
+                if (currentPrice > maxPrice) {
+                    maxPrice            = currentPrice;
+                    vehicleWithMaxPrice = currentVehiсle;
+                }
+            }
+
+            if (vehicleWithMaxPrice != null) {
+                System.out.println("\n\nVehicle with max price\n ");
+                vehicleWithMaxPrice.printOptions();
+            }
+
+        }
+
+    }
 }
