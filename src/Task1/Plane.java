@@ -5,7 +5,6 @@ public class Plane extends Vehicle {
     private int height;
 
     public Plane() {
-        super();
         this.setHeight();
         super.setAmountPassengers();
     }
