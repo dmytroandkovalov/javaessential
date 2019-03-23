@@ -10,8 +10,9 @@ public class Ship extends Vehicle {
         this.setPortName();
     }
 
-    public Ship(float latitude, float longitude, float price, float speed, int yearOfIssue, String portName) {
+    public Ship(float latitude, float longitude, float price, float speed, int yearOfIssue, int amountOfPassengers, String portName ) {
         super(latitude, longitude, price, speed, yearOfIssue);
+        super.setAmountPassengers(amountOfPassengers);
         this.setPortName(portName);
     }
 
