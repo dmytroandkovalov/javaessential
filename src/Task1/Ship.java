@@ -138,4 +138,9 @@ public class Ship extends Vehicle {
     public void setAmountPassengers() {
         super.setAmountPassengers();
     }
+
+    @Override
+    public void setVehicleType() {
+        super.setVehicleType("ship");
+    }
 }

@@ -115,4 +115,9 @@ public class Car extends  Vehicle {
     public void setAmountPassengers() {
         super.setAmountPassengers();
     }
+
+    @Override
+    public void setVehicleType() {
+        super.setVehicleType("car");
+    }
 }

@@ -122,6 +122,11 @@ public class Plane extends Vehicle {
         super.setAmountPassengers();
     }
 
+    @Override
+    public void setVehicleType() {
+        super.setVehicleType("plane");
+    }
+
     public float getHeight() {
         return height;
     }
