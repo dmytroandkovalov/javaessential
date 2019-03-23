@@ -9,6 +9,12 @@ public class Plane extends Vehicle {
         super.setAmountPassengers();
     }
 
+    public Plane(float latitude, float longitude, float price, float speed, int yearOfIssue, int height) {
+        super(latitude, longitude, price, speed, yearOfIssue);
+        this.setHeight(height);
+
+    }
+
     @Override
     public void printType() {
         System.out.println("This is plane");

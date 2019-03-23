@@ -23,6 +23,14 @@ abstract class Vehicle {
         this.setYearOfIssue();
     }
 
+    public Vehicle( float latitude, float longitude, float price, float speed, int yearOfIssue) {
+        this.setLatitude(latitude);
+        this.setLongitude(longitude);
+        this.setPrice(price);
+        this.setSpeed(speed);
+        this.setYearOfIssue(yearOfIssue);
+    }
+
     public void printCoordinates() {
 
         float latitude   = this.getLatitude();

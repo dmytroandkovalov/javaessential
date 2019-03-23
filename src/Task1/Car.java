@@ -2,10 +2,14 @@ package Task1;
 
 public class Car extends  Vehicle {
 
+
     public Car() {
         super();
     }
 
+    public Car(float latitude, float longitude, float price, float speed, int yearOfIssue) {
+        super(latitude, longitude, price, speed, yearOfIssue);
+    }
 
     @Override
     public void printType() {
